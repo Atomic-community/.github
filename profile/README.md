@@ -1,3 +1,5 @@
+![](https://komarev.com/ghpvc/?username=Atomic-community&color=00af54)
+
 ## Installation
 ```bash
 pip install pywaf
@@ -30,3 +32,4 @@ plt.legend()
 plt.show()
 ```
 <img src="example/example_1.svg">
+
