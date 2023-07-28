@@ -25,8 +25,8 @@ plt.legend()
 plt.subplot(1,2,2)
 plt.plot(x,up3,label=r"$\mathrm{up_3}(x)$",color='red')
 plt.plot(x,up3_deriv,label=r"$\mathrm{up'_3}(x)$",color='blue')
-
 plt.legend()
+
 plt.show()
 ```
 <img src="example/example_1.svg">
