@@ -122,3 +122,59 @@ plt.legend()
 plt.show()
 ```
 <img src="https://github.com/Atomic-community/.github/blob/main/example/example_4.png" >
+
+## Example 5
+```python
+
+import numpy as np
+import matplotlib.pyplot as plt
+from PIL import Image
+import pywt
+import waf
+
+image = Image.open(path)
+
+N = 62
+
+wavelet=waf.Wavelet('up')
+filter_bank = [wavelet.filter(N)['dec_lo'],wavelet.filter(N)['dec_hi'],wavelet.filter(N)['rec_lo'],wavelet.filter(N)['rec_hi']]
+pywt_wavelet=pywt.Wavelet(filter_bank=filter_bank)
+
+matrix=np.array(image)
+matrix_R=matrix[:,:,0]
+matrix_G=matrix[:,:,1]
+matrix_B=matrix[:,:,2]
+
+def filtration(matrix):
+    new_matrix=[]
+    cA9,cD9,cD8,cD7,cD6,cD5,cD4,cD3, cD2, cD1 = pywt.wavedec(matrix, pywt_wavelet, mode='symmetric', level=9)
+    coeffs = [cA9,cD9*0,cD8*0,cD7*0,cD6*0,cD5*0,cD4*0,cD3*0, cD2*0, cD1*0]
+    new_matrix.append(pywt.waverec(coeffs, pywt_wavelet))
+    return np.array(new_matrix)
+
+filtered_matrix_R=filtration(matrix_R)
+filtered_matrix_G=filtration(matrix_G)
+filtered_matrix_B=filtration(matrix_B)
+
+matrix_RGB=np.zeros(matrix.shape)
+matrix_RGB[:,:,0]=filtered_matrix_R
+matrix_RGB[:,:,1]=filtered_matrix_G
+matrix_RGB[:,:,2]=filtered_matrix_B
+
+filtered_image = Image.fromarray(np.uint8(matrix_RGB))
+
+plt.figure(figsize=(9,5))
+
+plt.subplot(121)
+plt.imshow(image)
+plt.axis('off')
+plt.title('Original')
+
+plt.subplot(122)
+plt.imshow(filtered_image)
+plt.axis('off')
+plt.title('Filtered')
+
+plt.show()
+```
+<img src="https://github.com/Atomic-community/.github/blob/main/example/example_5.png" >
