@@ -22,13 +22,13 @@ up3_deriv=AtomicKernel.upm_deriv(x,3)
 plt.figure(figsize=(12,4))
 
 plt.subplot(1,2,1)
-plt.plot(x,up,label=r"$\mathrm{up}(x)$",color='red')
-plt.plot(x,up_deriv,label=r"$\mathrm{up'}(x)$",color='blue')
+plt.plot(x,up,label=r"$\mathrm{up}(x)$")
+plt.plot(x,up_deriv,label=r"$\mathrm{up'}(x)$")
 plt.legend()
 
 plt.subplot(1,2,2)
-plt.plot(x,up3,label=r"$\mathrm{up_3}(x)$",color='red')
-plt.plot(x,up3_deriv,label=r"$\mathrm{up'_3}(x)$",color='blue')
+plt.plot(x,up3,label=r"$\mathrm{up_3}(x)$")
+plt.plot(x,up3_deriv,label=r"$\mathrm{up'_3}(x)$")
 plt.legend()
 
 plt.show()
