@@ -9,7 +9,7 @@ pip install pywaf
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
-from waf.kernel import AtomicKernel
+from waf import AtomicKernel
 
 x=np.linspace(-1,1,1000)
 
@@ -39,7 +39,7 @@ plt.show()
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
-from waf.kernel import AtomicKernel
+import waf
 
 N=100
 
@@ -77,7 +77,7 @@ plt.show()
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
-from waf
+import waf
 
 N=30
 x=np.arange(N)
