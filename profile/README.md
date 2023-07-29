@@ -41,29 +41,31 @@ import numpy as np
 import matplotlib.pyplot as plt
 from waf.kernel import AtomicKernel
 
+N=100
+
 plt.figure(figsize=(12,4))
 
 plt.subplot(1,2,1)
-plt.plot(waf.up(100),label=r'$\mathrm{up}$')
-plt.plot(waf.upm(100,m=3),label=r'$\mathrm{up}_3$')
-plt.plot(waf.ha(100,a=3),label=r'$\mathrm{h}_3$')
-plt.plot(waf.xin(100,n=3),label=r'$\mathrm{\Xi}_3$')
-plt.plot(waf.fupn(100,n=3),label=r'$\mathrm{fup}_3$')
-plt.plot(waf.chan(100,a=2,n=3),label=r'$\mathrm{ch}_{2,3}$')
-plt.plot(waf.fipan(100,a=2,n=1),label=r'$\mathrm{fip}_{2,1}$')
-plt.plot(waf.fpmn(100,m=2,n=1),label=r'$\mathrm{fp}_{2,1}$')
+plt.plot(waf.up(N),label=r'$\mathrm{up}$')
+plt.plot(waf.upm(N,m=3),label=r'$\mathrm{up}_3$')
+plt.plot(waf.ha(N,a=3),label=r'$\mathrm{h}_3$')
+plt.plot(waf.xin(N,n=3),label=r'$\mathrm{\Xi}_3$')
+plt.plot(waf.fupn(N,n=3),label=r'$\mathrm{fup}_3$')
+plt.plot(waf.chan(N,a=2,n=3),label=r'$\mathrm{ch}_{2,3}$')
+plt.plot(waf.fipan(N,a=2,n=1),label=r'$\mathrm{fip}_{2,1}$')
+plt.plot(waf.fpmn(N,m=2,n=1),label=r'$\mathrm{fp}_{2,1}$')
 plt.title(r'$\mathrm{mode}=max$')
 plt.legend()
 
 plt.subplot(1,2,2)
-plt.plot(waf.up(100,mode='area'),label=r'$\mathrm{up}$')
-plt.plot(waf.upm(100,m=3,mode='area'),label=r'$\mathrm{up}_3$')
-plt.plot(waf.ha(100,a=3,mode='area'),label=r'$\mathrm{h}_3$')
-plt.plot(waf.xin(100,n=3,mode='area'),label=r'$\mathrm{\Xi}_3$')
-plt.plot(waf.fupn(100,n=3,mode='area'),label=r'$\mathrm{fup}_3$')
-plt.plot(waf.chan(100,a=2,n=3,mode='area'),label=r'$\mathrm{ch}_{2,3}$')
-plt.plot(waf.fipan(100,a=2,n=1,mode='area'),label=r'$\mathrm{fip}_{2,1}$')
-plt.plot(waf.fpmn(100,m=2,n=1,mode='area'),label=r'$\mathrm{fp}_{2,1}$')
+plt.plot(waf.up(N,mode='area'),label=r'$\mathrm{up}$')
+plt.plot(waf.upm(N,m=3,mode='area'),label=r'$\mathrm{up}_3$')
+plt.plot(waf.ha(N,a=3,mode='area'),label=r'$\mathrm{h}_3$')
+plt.plot(waf.xin(N,n=3,mode='area'),label=r'$\mathrm{\Xi}_3$')
+plt.plot(waf.fupn(N,n=3,mode='area'),label=r'$\mathrm{fup}_3$')
+plt.plot(waf.chan(N,a=2,n=3,mode='area'),label=r'$\mathrm{ch}_{2,3}$')
+plt.plot(waf.fipan(N,a=2,n=1,mode='area'),label=r'$\mathrm{fip}_{2,1}$')
+plt.plot(waf.fpmn(N,m=2,n=1,mode='area'),label=r'$\mathrm{fp}_{2,1}$')
 plt.title(r'$\mathrm{mode}=area$')
 plt.legend()
 
