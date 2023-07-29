@@ -136,9 +136,10 @@ image = Image.open(path)
 
 N = 62
 
-wavelet=waf.Wavelet('up')
-filter_bank = [wavelet.filter(N)['dec_lo'],wavelet.filter(N)['dec_hi'],wavelet.filter(N)['rec_lo'],wavelet.filter(N)['rec_hi']]
-pywt_wavelet=pywt.Wavelet(filter_bank=filter_bank)
+wavelet = waf.Wavelet('up')
+filter_bank = [wavelet.filter(N)['dec_lo'], wavelet.filter(
+    N)['dec_hi'], wavelet.filter(N)['rec_lo'], wavelet.filter(N)['rec_hi']]
+pywt_wavelet = pywt.Wavelet(filter_bank=filter_bank)
 
 matrix=np.array(image)
 matrix_R=matrix[:,:,0]
@@ -146,9 +147,11 @@ matrix_G=matrix[:,:,1]
 matrix_B=matrix[:,:,2]
 
 def filtration(matrix):
-    new_matrix=[]
-    cA9,cD9,cD8,cD7,cD6,cD5,cD4,cD3, cD2, cD1 = pywt.wavedec(matrix, pywt_wavelet, mode='symmetric', level=9)
-    coeffs = [cA9,cD9*0,cD8*0,cD7*0,cD6*0,cD5*0,cD4*0,cD3*0, cD2*0, cD1*0]
+    new_matrix = []
+    cA9, cD9, cD8, cD7, cD6, cD5, cD4, cD3, cD2, cD1 = pywt.wavedec(
+        matrix, pywt_wavelet, mode='symmetric', level=9)
+    coeffs = [cA9, cD9*0, cD8*0, cD7*0, cD6 *
+              0, cD5*0, cD4*0, cD3*0, cD2*0, cD1*0]
     new_matrix.append(pywt.waverec(coeffs, pywt_wavelet))
     return np.array(new_matrix)
 
