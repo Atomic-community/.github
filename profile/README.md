@@ -33,7 +33,7 @@ plt.legend()
 
 plt.show()
 ```
-<img src="example/example_1.svg">
+<img src="https://github.com/Atomic-community/.github/blob/main/example/example_1.png" >
 
 ## Example 2
 ```python
@@ -69,7 +69,7 @@ plt.legend()
 
 plt.show()
 ```
-<img src="example/example_2.svg">
+<img src="https://github.com/Atomic-community/.github/blob/main/example/example_2.png" >
 
 ## Example 3
 ```python
@@ -94,4 +94,4 @@ for i,item in enumerate(filter_bank):
 
 plt.show()
 ```
-<img src="example/example_3.svg">
+<img src="https://github.com/Atomic-community/.github/blob/main/example/example_3.png" >
