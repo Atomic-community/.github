@@ -97,3 +97,28 @@ for i,item in enumerate(filter_bank):
 plt.show()
 ```
 <img src="https://github.com/Atomic-community/.github/blob/main/example/example_3.png" >
+
+## Example 4
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+import waf
+
+x=np.linspace(-10,10,1000)
+wavelet=waf.Wavelet('up')
+
+plt.figure(figsize=(9,4))
+
+plt.subplot(121)
+plt.plot(x,wavelet.phi(x),label='Scaling function')
+plt.plot(x,wavelet.psi(x),label='Wavelet')
+plt.legend()
+
+plt.subplot(122)
+plt.plot(x,wavelet.phi_f(x),label='Scaling function')
+plt.plot(x,np.abs(wavelet.psi_f(x)),label='Wavelet')
+plt.legend()
+
+plt.show()
+```
+<img src="https://github.com/Atomic-community/.github/blob/main/example/example_4.png" >
