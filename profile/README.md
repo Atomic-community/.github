@@ -19,6 +19,8 @@ up_deriv=AtomicKernel.up_deriv(x)
 up3=AtomicKernel.upm(x,3)
 up3_deriv=AtomicKernel.upm_deriv(x,3)
 
+plt.figure(figsize=(12,4))
+
 plt.subplot(1,2,1)
 plt.plot(x,up,label=r"$\mathrm{up}(x)$",color='red')
 plt.plot(x,up_deriv,label=r"$\mathrm{up'}(x)$",color='blue')
@@ -33,3 +35,63 @@ plt.show()
 ```
 <img src="example/example_1.svg">
 
+## Example 2
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+from waf.kernel import AtomicKernel
+
+plt.figure(figsize=(12,4))
+
+plt.subplot(1,2,1)
+plt.plot(waf.up(100),label=r'$\mathrm{up}$')
+plt.plot(waf.upm(100,m=3),label=r'$\mathrm{up}_3$')
+plt.plot(waf.ha(100,a=3),label=r'$\mathrm{h}_3$')
+plt.plot(waf.xin(100,n=3),label=r'$\mathrm{\Xi}_3$')
+plt.plot(waf.fupn(100,n=3),label=r'$\mathrm{fup}_3$')
+plt.plot(waf.chan(100,a=2,n=3),label=r'$\mathrm{ch}_{2,3}$')
+plt.plot(waf.fipan(100,a=2,n=1),label=r'$\mathrm{fip}_{2,1}$')
+plt.plot(waf.fpmn(100,m=2,n=1),label=r'$\mathrm{fp}_{2,1}$')
+plt.title(r'$\mathrm{mode}=max$')
+plt.legend()
+
+plt.subplot(1,2,2)
+plt.plot(waf.up(100,mode='area'),label=r'$\mathrm{up}$')
+plt.plot(waf.upm(100,m=3,mode='area'),label=r'$\mathrm{up}_3$')
+plt.plot(waf.ha(100,a=3,mode='area'),label=r'$\mathrm{h}_3$')
+plt.plot(waf.xin(100,n=3,mode='area'),label=r'$\mathrm{\Xi}_3$')
+plt.plot(waf.fupn(100,n=3,mode='area'),label=r'$\mathrm{fup}_3$')
+plt.plot(waf.chan(100,a=2,n=3,mode='area'),label=r'$\mathrm{ch}_{2,3}$')
+plt.plot(waf.fipan(100,a=2,n=1,mode='area'),label=r'$\mathrm{fip}_{2,1}$')
+plt.plot(waf.fpmn(100,m=2,n=1,mode='area'),label=r'$\mathrm{fp}_{2,1}$')
+plt.title(r'$\mathrm{mode}=area$')
+plt.legend()
+
+plt.show()
+```
+<img src="example/example_2.svg">
+
+## Example 3
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+from waf
+
+N=30
+x=np.arange(N)
+
+wavelet=waf.Wavelet('up')
+filter_bank=wavelet.filter(N)
+
+fig=plt.figure(figsize=(12,4))
+
+for i,item in enumerate(filter_bank):
+    fig.add_subplot(1,4,i+1)
+    plt.scatter(x,filter_bank[item])
+    plt.vlines(x,0,filter_bank[item])
+    plt.title(item)
+    plt.ylim(-1,1)
+
+plt.show()
+```
+<img src="example/example_3.svg">
